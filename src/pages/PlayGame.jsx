@@ -132,7 +132,7 @@ const PlayGame = () => {
       const savedTimeList = JSON.parse(localStorage.getItem("timeList")) || [];
       savedTimeList.push(timer);
       localStorage.setItem("timeList", JSON.stringify(savedTimeList));
-      console.log(JSON.parse(localStorage.getItem("timeList"))); 
+      console.log(JSON.parse(localStorage.getItem("timeList")));
     }
   }, [cardMatchList]);
 
@@ -189,7 +189,6 @@ const PlayGame = () => {
                   flipCardList.includes(card) ? "scale-105" : ""
                 }`}
               />
-              {card.name}
             </div>
           );
         })}
