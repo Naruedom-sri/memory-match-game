@@ -1,0 +1,16 @@
+.home-container {
+  background-image: url("/src/assets/images/bg/bg-home.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 0 -185px;
+}
+
+.box-modal {
+  overflow-y: auto; 
+  scrollbar-width: none; 
+  -ms-overflow-style: none; 
+}
+
+.box-modal::-webkit-scrollbar {
+  display: none; 
+}

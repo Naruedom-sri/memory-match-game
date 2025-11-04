@@ -1,0 +1,20 @@
+.play-game-container {
+  background-image: url("/src/assets/images/bg/bg-play-game.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.card {
+  animation: show-card 0.7s ease-in forwards;
+}
+
+@keyframes show-card {
+  from {
+    transform: translateY(10px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 100;
+  }
+}
