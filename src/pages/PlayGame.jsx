@@ -11,6 +11,7 @@ import endGame from "../assets/audios/end-game.mp3";
 import bgGame from "../assets/audios/bg-game.mp3";
 import cardMatch from "../assets/audios/match-card.mp3";
 import cardNotMatch from "../assets/audios/not-match.mp3";
+import ButtonIcon from "../components/ButtonIcon";
 
 const catList = ["cat-1", "cat-2", "cat-3", "cat-4", "cat-5", "cat-6"];
 const PlayGame = () => {
@@ -78,6 +79,7 @@ const PlayGame = () => {
   };
 
   const startGame = () => {
+    handleSoundBg();
     randomCardList();
     setTimerGame();
     setIsShowModal(false);
@@ -110,7 +112,6 @@ const PlayGame = () => {
 
   useEffect(() => {
     startGame();
-    playBgSound();
 
     return () => {
       stopPlayBgSound();
@@ -129,10 +130,10 @@ const PlayGame = () => {
       stopTimerGame();
       stopPlayBgSound();
       playSound(endGame);
+      setMatchCardList([]);
       const savedTimeList = JSON.parse(localStorage.getItem("timeList")) || [];
       savedTimeList.push(timer);
       localStorage.setItem("timeList", JSON.stringify(savedTimeList));
-      console.log(JSON.parse(localStorage.getItem("timeList")));
     }
   }, [cardMatchList]);
 
@@ -143,14 +144,11 @@ const PlayGame = () => {
   return (
     <div className="play-game-container bg-[#8253cd] ">
       <div className="header grid grid-cols-3 items-center py-10 text-white text-3xl">
-        <Link to="/">
-          <div
-            onClick={() => playSound(clickSound)}
-            className="flex justify-center items-center w-16 h-16 mx-auto bg-white rounded-full text-[#4e2ab9] hover:scale-105 transition-all duration-200"
-          >
-            <FaHome />
-          </div>
-        </Link>
+        <div className="flex justify-center items-center">
+          <Link to="/">
+            <ButtonIcon color="white" size="md" icon={<FaHome />} />
+          </Link>
+        </div>
         <div className="time flex justify-center items-center gap-2">
           <FaRegClock />
           <h1>
@@ -201,22 +199,16 @@ const PlayGame = () => {
               {Math.floor(timer / 60)}:{String(timer % 60).padStart(2, "0")}
             </p>
             <div className="flex gap-7 ">
-              <Link to="/">
-                <div
-                  onClick={() => playSound(clickSound)}
-                  className="flex justify-center items-center w-16 h-16 mx-auto bg-[#4e2ab9] rounded-full text-white hover:scale-105 transition-all duration-200 cursor-pointer"
-                >
-                  <FaHome />
-                </div>
-              </Link>
+              <div className="flex justify-center items-cent">
+                <Link to="/">
+                  <ButtonIcon color="purple" size="md" icon={<FaHome />} />
+                </Link>
+              </div>
               <div
-                onClick={() => {
-                  startGame();
-                  playSound(clickSound);
-                }}
-                className="flex justify-center items-center w-16 h-16 mx-auto bg-[#4e2ab9] rounded-full text-white hover:scale-105 transition-all duration-200 cursor-pointer"
+                onClick={startGame}
+                className="flex justify-center items-center"
               >
-                <FaRedo />
+                <ButtonIcon color="purple" size="md" icon={<FaRedo />} />
               </div>
             </div>
           </div>
