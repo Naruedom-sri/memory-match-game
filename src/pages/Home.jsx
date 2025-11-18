@@ -75,8 +75,11 @@ const Home = () => {
             <div className="flex items-center gap-2 mt-4">
               <FaStar className="text-yellow-500" />
               <h1>
-                {Math.floor(Math.min(...timeList) / 60)}:
-                {String(Math.min(...timeList) % 60).padStart(2, "0")}
+                {timeList.length !== 0 &&
+                  Math.floor(Math.min(...timeList) / 60)}
+                :
+                {timeList.length !== 0 &&
+                  String(Math.min(...timeList) % 60).padStart(2, "0")}
               </h1>
             </div>
             <div className="w-full mb-4 mt-4 flex justify-around text-2xl">
