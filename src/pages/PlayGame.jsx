@@ -6,7 +6,6 @@ import { HiMiniSpeakerXMark } from "react-icons/hi2";
 import { FaHome } from "react-icons/fa";
 import { FaRedo } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import clickSound from "../assets/audios/button.mp3";
 import endGame from "../assets/audios/end-game.mp3";
 import bgGame from "../assets/audios/bg-game.mp3";
 import cardMatch from "../assets/audios/match-card.mp3";
@@ -177,7 +176,7 @@ const PlayGame = () => {
               key={card.id}
             >
               <img
-                src={`/src/assets/images/cat/${
+                src={`/images/cat/${
                   cardMatchList.includes(card) || flipCardList.includes(card)
                     ? card.name
                     : "card-back-cat"

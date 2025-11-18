@@ -6,6 +6,7 @@ import { HiMiniSpeakerXMark } from "react-icons/hi2";
 import { FaStar } from "react-icons/fa";
 import { useEffect, useState, useRef } from "react";
 import bgHome from "../assets/audios/bg-home.mp3";
+import titleGame from "../assets/images/title-game.png";
 
 const Home = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -51,11 +52,7 @@ const Home = () => {
         {isPlaying ? <HiMiniSpeakerWave /> : <HiMiniSpeakerXMark />}
       </div>
       <div className="flex flex-col items-center">
-        <img
-          src="/src/assets/images/title-game.png"
-          alt="title-game"
-          className="w-lg object-cover"
-        />
+        <img src={titleGame} alt="title-game" className="w-lg object-cover" />
         <div className="button flex flex-col gap-7">
           <Link to="/play-game">
             <Button title="PLAY" color="pink" size="xl" />
